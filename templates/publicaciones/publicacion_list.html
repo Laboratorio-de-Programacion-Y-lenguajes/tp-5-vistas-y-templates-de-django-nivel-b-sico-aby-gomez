@@ -22,3 +22,24 @@
             <p>No hay publicaciones disponibles aún.</p>
         {% endfor %}
 -->
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Listado de Publicaciones</h2>
+
+    <div class="publicaciones-container">
+        {% for pub in publicacion_list %}
+            <article class="publicacion-item">
+                <h3>{{ pub.titulo }}</h3>
+                <p><strong>Autor:</strong> {{ pub.autor }}</p>
+                <p><small>Fecha: {{ pub.fecha_publicacion }}</small></p>
+                <p>
+                    <a href="{% url 'publicaciones:detalle_publicacion' pub.pk %}">Ver detalle</a>
+                </p>
+            </article>
+            <hr>
+        {% empty %}
+            <p>No hay publicaciones disponibles aún.</p>
+        {% endfor %}
+    </div>
+{% endblock %}
