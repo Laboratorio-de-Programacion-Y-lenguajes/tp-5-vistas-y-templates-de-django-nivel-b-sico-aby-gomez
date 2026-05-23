@@ -18,3 +18,33 @@
             {% endblock %}
         </main>
 -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Publicaciones</title>
+</head>
+<body>
+
+    <header>
+        <h1>Portal de Publicaciones UNTDF</h1>
+        <nav>
+            <ul>
+                <li><a href="{% url 'publicaciones:inicio' %}">Inicio</a></li>
+                <li><a href="{% url 'publicaciones:lista_publicaciones' %}">Publicaciones</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2026 - Laboratorio de Programación</p>
+    </footer>
+
+</body>
+</html>

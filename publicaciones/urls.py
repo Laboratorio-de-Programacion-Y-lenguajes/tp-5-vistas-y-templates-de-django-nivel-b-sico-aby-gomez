@@ -29,6 +29,6 @@ app_name = "publicaciones"
     
 urlpatterns = [
     path("", InicioView.as_view(), name="inicio"),
-    path("/lista", PublicacionListView.as_view(), name="lista_publicaciones"),
-    path("<int:pk>/", PublicacionDetailView.as_view(), name="detalle_publicacion")
+    path("publicaciones/", PublicacionListView.as_view(), name="lista_publicaciones"),
+    path("publicaciones/<int:publicacion_id>/", PublicacionDetailView.as_view(), name="detalle_publicacion")
 ]

@@ -37,6 +37,8 @@ class InicioView(TemplateView):
 class PublicacionListView(ListView):
        model = Publicacion
        context_object_name = "publicacion_list"
+       # Forzamos explícitamente la ruta del template que exige el test
+       template_name = "publicaciones/publicacion_list.html"
 
 
 # ---------------------------------------------------------------------------
@@ -57,3 +59,5 @@ class PublicacionDetailView(DetailView):
       model = Publicacion
       context_object_name = "publicacion"
       pk_url_kwarg = "publicacion_id"
+      # Forzamos explícitamente la ruta del template que exige el test
+      template_name = "publicaciones/publicacion_detail.html"
