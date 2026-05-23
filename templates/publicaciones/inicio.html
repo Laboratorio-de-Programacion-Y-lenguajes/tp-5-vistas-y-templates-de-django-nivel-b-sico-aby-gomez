@@ -17,3 +17,17 @@
             ...
         {% endblock %}
 -->
+
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="inicio-portal">
+        <h1>{{ titulo }}</h1>
+        
+        <p>{{ mensaje }}</p>
+        
+        <p>
+            <a href="{% url 'publicaciones:lista_publicaciones' %}">Ir al listado de publicaciones →</a>
+        </p>
+    </section>
+{% endblock %}
