@@ -14,3 +14,28 @@
     Pista para el link de vuelta:
         <a href="{% url 'publicaciones:lista_publicaciones' %}">← Volver al listado</a>
 -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+    <article class="publicacion-detalle">
+        <h1>{{ publicacion.titulo }}</h1>
+        
+        <div class="publicacion-meta">
+            <p><strong>Autor:</strong> {{ publicacion.autor }}</p>
+            <p><small>Publicado el: {{ publicacion.fecha_publicacion }}</small></p>
+        </div>
+        
+        <hr>
+
+        <div class="publicacion-cuerpo">
+            <p>{{ publicacion.contenido }}</p>
+        </div>
+    </article>
+
+    <hr>
+
+    <p>
+        <a href="{% url 'publicaciones:lista_publicaciones' %}">← Volver al listado</a>
+    </p>
+{% endblock %}
