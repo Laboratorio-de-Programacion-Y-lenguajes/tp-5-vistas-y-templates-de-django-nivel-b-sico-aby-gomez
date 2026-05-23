@@ -1,11 +1,13 @@
 from django.urls import path
 from . import views
 
+from .views import InicioView, PublicacionDetailView, PublicacionListView
+
 # TODO: Asignar el namespace de la app.
 # Esto permite usar {% url 'publicaciones:inicio' %} en los templates.
 app_name = "publicaciones"
 
-urlpatterns = [
+
     # TODO: Definir las tres rutas usando path() y .as_view()
     #
     # Rutas a implementar:
@@ -24,4 +26,9 @@ urlpatterns = [
     #
     # Pista para registrar una CBV:
     #   path("ruta/", views.MiVista.as_view(), name="nombre"),
+    
+urlpatterns = [
+    path("", InicioView.as_view(), name="inicio"),
+    path("/lista", PublicacionListView.as_view(), name="lista_publicaciones"),
+    path("<int:pk>/", PublicacionDetailView.as_view(), name="detalle_publicacion")
 ]

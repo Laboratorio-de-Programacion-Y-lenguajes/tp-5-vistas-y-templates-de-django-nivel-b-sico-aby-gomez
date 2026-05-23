@@ -13,14 +13,14 @@ from .models import Publicacion
 #       "mensaje" → str de bienvenida
 #
 # Pista:
-#   class InicioView(TemplateView):
-#       template_name = "..."
-#
-#       def get_context_data(self, **kwargs):
-#           context = super().get_context_data(**kwargs)
-#           context["titulo"] = "..."
-#           context["mensaje"] = "..."
-#           return context
+class InicioView(TemplateView):
+    template_name = "publicaciones/inicio.html"
+
+    def get_context_data(self, **kwargs):
+          context = super().get_context_data(**kwargs)
+          context["titulo"] = "Publicaciones"
+          context["mensaje"] = "Bienvenido!"
+          return context
 
 
 # ---------------------------------------------------------------------------
@@ -34,9 +34,9 @@ from .models import Publicacion
 #     (el template accede a esta variable con {% for pub in publicacion_list %})
 #
 # Pista:
-#   class PublicacionListView(ListView):
-#       model = ...
-#       context_object_name = "..."
+class PublicacionListView(ListView):
+       model = Publicacion
+       context_object_name = "publicacion_list"
 
 
 # ---------------------------------------------------------------------------
@@ -53,7 +53,7 @@ from .models import Publicacion
 #   - Si no existe la publicación → responde automáticamente con 404
 #
 # Pista:
-#   class PublicacionDetailView(DetailView):
-#       model = ...
-#       context_object_name = "..."
-#       pk_url_kwarg = "..."
+class PublicacionDetailView(DetailView):
+      model = Publicacion
+      context_object_name = "publicacion"
+      pk_url_kwarg = "publicacion_id"
